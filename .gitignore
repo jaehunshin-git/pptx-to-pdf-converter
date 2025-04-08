@@ -1,3 +1,5 @@
 venv/
 output_dir/
 my_pptx_to_pdf.py
+bfg.jar
+delete-files.txt
