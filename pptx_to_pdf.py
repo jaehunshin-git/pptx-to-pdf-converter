@@ -38,6 +38,6 @@ def convert_all_pptx_to_pdf(input_dir: str, output_dir: str):
 
 # 예시 실행
 if __name__ == "__main__":
-    input_folder = r"PASTE_YOUR_INPUT_FOLDER_PATH_HERE"
-    output_folder = r"PASTE_YOUR_OUTPUT_FOLDER_PATH_HERE"
+    input_folder = r"C:\Users\JHSHIN\ProgrammingCodes\pptxtopdf\input_dir"
+    output_folder = r"C:\Users\JHSHIN\ProgrammingCodes\pptxtopdf\output_dir"
     convert_all_pptx_to_pdf(input_folder, output_folder)

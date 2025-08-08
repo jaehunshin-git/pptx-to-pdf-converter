@@ -69,7 +69,7 @@ You should see conversion logs in the terminal, and `.pdf` files will appear in 
 
 ## 📂 Example Directory Structure
 
-```
+```plaintext
 pptx-to-pdf/
  ├─ pptx_to_pdf.py
  ├─ requirements.txt
