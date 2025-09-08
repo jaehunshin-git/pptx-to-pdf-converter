@@ -1,11 +1,11 @@
 import os
 import comtypes.client
 
-def convert_all_pptx_to_pdf(input_dir: str, output_dir: str):
+def convert_all_ppt_to_pdf(input_dir: str, output_dir: str):
     """
-    입력 디렉토리 내의 모든 PPTX 파일을 PDF로 변환하여 출력 디렉토리에 저장
+    입력 디렉토리 내의 모든 PPT/PPTX 파일을 PDF로 변환하여 출력 디렉토리에 저장
 
-    :param input_dir: PPTX 파일이 들어있는 폴더 경로
+    :param input_dir: PPT/PPTX 파일이 들어있는 폴더 경로
     :param output_dir: PDF 파일을 저장할 폴더 경로
     """
     # 절대경로로 변환
@@ -21,15 +21,15 @@ def convert_all_pptx_to_pdf(input_dir: str, output_dir: str):
 
     try:
         for filename in os.listdir(input_dir):
-            if filename.lower().endswith(".pptx"):
-                pptx_path = os.path.join(input_dir, filename)
+            if filename.lower().endswith((".pptx", ".ppt")):
+                ppt_path = os.path.join(input_dir, filename)
                 pdf_name = os.path.splitext(filename)[0] + ".pdf"
                 pdf_path = os.path.join(output_dir, pdf_name)
 
-                print(f"변환 중: {pptx_path} -> {pdf_path}")
+                print(f"변환 중: {ppt_path} -> {pdf_path}")
                 
                 # 프레젠테이션 열고 PDF로 저장
-                presentation = powerpoint.Presentations.Open(pptx_path, WithWindow=False)
+                presentation = powerpoint.Presentations.Open(ppt_path, WithWindow=False)
                 presentation.SaveAs(pdf_path, FileFormat=32)  # 32 = PDF
                 presentation.Close()
     finally:
@@ -38,6 +38,6 @@ def convert_all_pptx_to_pdf(input_dir: str, output_dir: str):
 
 # 예시 실행
 if __name__ == "__main__":
-    input_folder = r"C:\Users\JHSHIN\ProgrammingCodes\pptxtopdf\input_dir"
-    output_folder = r"C:\Users\JHSHIN\ProgrammingCodes\pptxtopdf\output_dir"
-    convert_all_pptx_to_pdf(input_folder, output_folder)
+    input_folder = r"C:\Users\JHSHIN\ProgrammingCodes\solo-project\pdf-related\pptxtopdf\input_dir"
+    output_folder = r"C:\Users\JHSHIN\ProgrammingCodes\solo-project\pdf-related\pptxtopdf\output_dir"
+    convert_all_ppt_to_pdf(input_folder, output_folder)
